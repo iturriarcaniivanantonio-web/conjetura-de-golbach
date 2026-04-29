@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% Configuración de colores para el código
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeblue}{rgb}{0,0,0.8}
+\lstset{
+    language=Octave,
+    backgroundcolor=\color{gray!10},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{codeblue},
+    commentstyle=\color{codegreen},
+    breaklines=true,
+    numbers=left,
+    frame=single
+}
+
+\begin{document}
+
+% --- PORTADA ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries Informe de Laboratorio \par}
+    \vspace{1cm}
+    {\Large\bfseries Conjetura de Goldbach en Octave \par}
+    \vspace{2cm}
+    {\large Autor: Estudiante de Matemáticas \par}
+    \vfill
+    {\large \today \par}
+\end{titlepage}
+
+% --- ÍNDICE ---
+\tableofcontents
+\newpage
+
+% --- CONTENIDO ---
+\section{Introducción}
+La conjetura de Goldbach afirma que todo número par mayor que 2 puede escribirse como la suma de dos números primos. Este informe detalla el algoritmo desarrollado para verificar esta propiedad.
+
+\section{Marco Teórico}
+Establecemos la relación matemática:
+\begin{equation}
+n = p_1 + p_2 \quad \text{donde } p_1, p_2 \in \text{Primos}
+\end{equation}
+
+\section{Metodología y Algoritmo}
+Se utiliza una búsqueda sistemática empleando la función \texttt{primes} para generar el espacio de búsqueda y \texttt{isprime} para la validación del complemento.
+
+\section{Implementación (Código Fuente)}
+\begin{lstlisting}
+% Codigo Octave
+n = input('Ingrese un numero par mayor a 2: ');
+lista_primos = primes(n);
+for i = 1:length(lista_primos)
+    p1 = lista_primos(i);
+    p2 = n - p1;
+    if isprime(p2)
+        fprintf('Resultado: %d = %d + %d\n', n, p1, p2);
+        break;
+    end
+end
+\end{lstlisting}
+
+\section{Resultados y Análisis}
+Se verificó el funcionamiento con números de diversa magnitud, confirmando la validez de la conjetura en todos los casos probados.
+
+\section{Conclusiones}
+La implementación en Octave es robusta y eficiente para fines educativos y de investigación inicial en teoría de números.
+
+\end{document}
+
+¡Tu informe con índice está listo! He organizado la estructura para que se vea mucho más profesional.
